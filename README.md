@@ -12,7 +12,7 @@
 
 </br>
 
-### Dev env
+### ⚙️ Dev env
 - iOS 16.0+
 - Xcode 14.3
 
