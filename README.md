@@ -1,6 +1,8 @@
 # In Seoul Hot Place 
 서울 혼잡도를 알려주는 서비스 🌝
 
+</br>
+
 ### 🏷 Commit Message
 - `[Add]` 기능 외에 추가사항 (파일, 프로토콜, 익스텐션 등)  
 - `[Del]` 파일, 에셋 삭제
@@ -10,13 +12,9 @@
 - `[Docs]` 리드미 및 문서 수정
 - `[Style]` UI 관련 작업
 
-</br>
-
 ### ⚙️ Dev env
 - iOS 16.0+
 - Xcode 14.3
-
-</br>
 
 ### 🗂 Library
 - SnapKit 5.6.0
