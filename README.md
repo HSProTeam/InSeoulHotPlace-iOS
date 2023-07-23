@@ -1,5 +1,5 @@
 # In Seoul Hot Place 
-
+서울 혼잡도를 알려주는 서비스 🌝
 
 ### 🏷 Commit Message
 - `[Add]` 기능 외에 추가사항 (파일, 프로토콜, 익스텐션 등)  
