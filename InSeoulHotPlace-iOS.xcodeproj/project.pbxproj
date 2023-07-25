@@ -28,6 +28,7 @@
 		B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */; };
 		B6C34CEB2A7011B400E20EA7 /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */; };
 		B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */; };
+		B6C34CEF2A70137600E20EA7 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEE2A70137600E20EA7 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
 		B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
 		B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		B6C34CEE2A70137600E20EA7 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */,
+				B6C34CEE2A70137600E20EA7 /* LocationService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
 				B6C34CEB2A7011B400E20EA7 /* LocationResponse.swift in Sources */,
 				B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */,
+				B6C34CEF2A70137600E20EA7 /* LocationService.swift in Sources */,
 				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
