@@ -27,6 +27,7 @@
 		B6A01AA72A6FCC2C00CBE695 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */; };
 		B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */; };
 		B6C34CEB2A7011B400E20EA7 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEA2A7011B400E20EA7 /* LocationModel.swift */; };
+		B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
 		B6C34CEA2A7011B400E20EA7 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		B6C34CE82A70105F00E20EA7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
 				B6C34CEB2A7011B400E20EA7 /* LocationModel.swift in Sources */,
 				B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */,
+				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
