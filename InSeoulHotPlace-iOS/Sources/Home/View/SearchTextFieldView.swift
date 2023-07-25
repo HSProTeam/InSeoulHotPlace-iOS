@@ -39,6 +39,8 @@ final class SearchTextFieldView: UIView {
 // MARK: - Setup helper
 private extension SearchTextFieldView {
     func setupViews() {
+        backgroundColor = .white
+        
         addSubview(searchTextField)
     }
     
