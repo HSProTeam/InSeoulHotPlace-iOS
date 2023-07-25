@@ -26,6 +26,7 @@
 		B6A01AA32A6FC94800CBE695 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B6A01AA22A6FC94800CBE695 /* SnapKit */; };
 		B6A01AA72A6FCC2C00CBE695 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */; };
 		B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */; };
+		B6C34CEB2A7011B400E20EA7 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEA2A7011B400E20EA7 /* LocationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		B69B9DA32A6D088800AA2DE9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
+		B6C34CEA2A7011B400E20EA7 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				B6A01AA42A6FCA6400CBE695 /* View */,
+				B6C34CE82A70105F00E20EA7 /* ViewModel */,
+				B6C34CE92A70106500E20EA7 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -195,6 +199,21 @@
 				B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B6C34CE82A70105F00E20EA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6C34CE92A70106500E20EA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6C34CEA2A7011B400E20EA7 /* LocationModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +367,7 @@
 				B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */,
 				B6A01AA72A6FCC2C00CBE695 /* LocationTableViewCell.swift in Sources */,
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
+				B6C34CEB2A7011B400E20EA7 /* LocationModel.swift in Sources */,
 				B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
