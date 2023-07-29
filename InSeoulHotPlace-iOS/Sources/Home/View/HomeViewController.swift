@@ -6,22 +6,29 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: BaseViewController {
     
     private let searchTextFieldView = SearchTextFieldView()
     private let locationTableView = UITableView().then {
-        $0.backgroundColor = .systemGreen
+        $0.separatorStyle = .none
+        
+        $0.register(
+            LocationTableViewCell.self,
+            forCellReuseIdentifier: "LocationTableViewCell"
+        )
     }
+    
+    private lazy var disposeBag = DisposeBag()
+    private let viewModel = LocationViewModel()
+    private var locationData: [LocationData]?
     
     override func setupViews() {
         view.backgroundColor = .white
         view.addSubview(searchTextFieldView)
         view.addSubview(locationTableView)
-        
-        locationTableView.delegate = self
-        locationTableView.dataSource = self
-        locationTableView.register(LocationTableViewCell.self, forCellReuseIdentifier: "LocationTableViewCell")
         
         searchTextFieldView.delegate = self
     }
@@ -39,7 +46,21 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setupBinding() {
+        viewModel.fetchLocationRequest()
         
+        viewModel.loacationSubject
+            .bind(to: locationTableView.rx.items) { tv, row, item -> UITableViewCell in
+                guard let cell = tv.dequeueReusableCell(
+                    withIdentifier: "LocationTableViewCell",
+                    for: IndexPath(row: row, section: 0)
+                ) as? LocationTableViewCell
+                else { return UITableViewCell() }
+                
+                cell.setupBindingCell(title: item.areaNm)
+                
+                return cell
+            }
+            .disposed(by: disposeBag)
     }
 }
 
@@ -47,25 +68,5 @@ final class HomeViewController: BaseViewController {
 extension HomeViewController: SearchTextFieldDelegate {
     func searchText(title: String) {
         print("DEBUG: title is \(title)")
-    }
-}
-
-
-// MARK: - UITableView Delegate
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "LocationTableViewCell",
-            for: indexPath
-        ) as? LocationTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.setupBindingCell(title: "This cell is test")
-        
-        return cell
     }
 }

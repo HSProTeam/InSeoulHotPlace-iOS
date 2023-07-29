@@ -9,16 +9,11 @@ import Moya
 import RxMoya
 import RxSwift
 import RxCocoa
-import RxRelay
 
 final class LocationViewModel {
     private lazy var disposeBag = DisposeBag()
     private let provider = MoyaProvider<GetLocationService>()
-    private let locationRelay = BehaviorRelay<[LocationData]>(value: Array.init())
-    
-    var locationData: Driver<[LocationData]> {
-        return locationRelay.asDriver()
-    }
+    var loacationSubject = BehaviorSubject<[LocationData]>(value: Array.init())
     
     func fetchLocationRequest() {
         provider.rx.request(.getLocationService)
@@ -26,7 +21,7 @@ final class LocationViewModel {
                 switch result {
                 case .success(let response):
                     guard let responseData = try? response.map(LocationResponse.self) else { return }
-                    self?.locationRelay.accept(responseData.row)
+                    self?.loacationSubject.onNext(responseData.row)
                     
                 case .failure(let error):
                     print("DEBUG: fetchLocationRequest error is \(error.localizedDescription)")
