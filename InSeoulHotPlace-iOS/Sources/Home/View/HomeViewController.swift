@@ -11,9 +11,20 @@ import RxCocoa
 
 final class HomeViewController: BaseViewController {
     
-    private let searchTextFieldView = SearchTextFieldView()
+    private let searchTextField = UITextField().then {
+        $0.placeholder = "  원하는 장소를 입력해주세요"
+        $0.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        $0.tintColor = .black
+        
+        $0.autocorrectionType = .no
+        $0.autocapitalizationType = .none
+        
+        $0.addLeftImageView(image: UIImage(systemName: "magnifyingglass")!)
+    }
+    
     private let locationTableView = UITableView().then {
         $0.separatorStyle = .none
+        $0.showsVerticalScrollIndicator = false
         
         $0.register(
             LocationTableViewCell.self,
@@ -27,21 +38,19 @@ final class HomeViewController: BaseViewController {
     
     override func setupViews() {
         view.backgroundColor = .white
-        view.addSubview(searchTextFieldView)
+        view.addSubview(searchTextField)
         view.addSubview(locationTableView)
-        
-        searchTextFieldView.delegate = self
     }
     
     override func setupLayouts() {
-        searchTextFieldView.snp.makeConstraints {
+        searchTextField.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(4)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         locationTableView.snp.makeConstraints {
-            $0.top.equalTo(searchTextFieldView.snp.bottom).offset(8)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(searchTextField.snp.bottom).offset(4)
+            $0.leading.trailing.bottom.equalToSuperview().inset(16)
         }
     }
     
@@ -57,12 +66,5 @@ final class HomeViewController: BaseViewController {
                 cell.setupBindingCell(title: item.areaNm)
             }
             .disposed(by: disposeBag)
-    }
-}
-
-// MARK: - SearchTextFieldView Delegate
-extension HomeViewController: SearchTextFieldDelegate {
-    func searchText(title: String) {
-        print("DEBUG: title is \(title)")
     }
 }

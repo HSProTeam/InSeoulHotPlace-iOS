@@ -36,7 +36,7 @@ private extension LocationTableViewCell {
     
     func setupLayouts() {
         titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(16)
+            $0.leading.equalToSuperview()
             $0.top.bottom.equalToSuperview().inset(16)
         }
     }
