@@ -18,6 +18,12 @@ final class SearchTextFieldView: UIView {
     private let searchTextField = UITextField().then {
         $0.placeholder = "원하는 장소를 입력해주세요"
         $0.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        $0.tintColor = .black
+        
+        $0.autocorrectionType = .no
+        $0.autocapitalizationType = .none
+        
+        $0.addLeftImageView(image: UIImage(systemName: "magnifyingglass")!)
     }
     
     private lazy var disposeBag = DisposeBag()
