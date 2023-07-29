@@ -9,28 +9,33 @@ import Foundation
 import Moya
 
 enum GetLocationService {
-    case getLocationService(Void)
-//    case getLocationService(page: Int, category: String, count: Int, sort: Bool)
+    case getLocationService
 }
 
-extension GetLocationService {
+extension GetLocationService: TargetType {
     var baseURL: URL {
         return URL(string: APIConstant.baseURL)!
     }
     
     var path: String {
-        return APIConstant.getCategory
+        return ""
     }
     
-    var methoe: Moya.Method {
+    var method: Moya.Method {
         return .get
     }
     
     var task: Task {
-        return .requestPlain
+        let param: [String : Any] = [
+            "page" : 1,
+            "category" : "전체보기",
+            "count" : 113,
+            "sort" : true
+        ]
+        return .requestParameters(parameters: param, encoding: URLEncoding.queryString)
     }
     
-    var header: [String : String]? {
+    var headers: [String : String]? {
         return [
             "Content-Type": "application/json"
         ]
