@@ -26,7 +26,6 @@
 		B6A01AA02A6FC92600CBE695 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B6A01A9F2A6FC92600CBE695 /* RxSwift */; };
 		B6A01AA32A6FC94800CBE695 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B6A01AA22A6FC94800CBE695 /* SnapKit */; };
 		B6A01AA72A6FCC2C00CBE695 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */; };
-		B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */; };
 		B6C34CEB2A7011B400E20EA7 /* LocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */; };
 		B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */; };
 		B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */; };
@@ -66,7 +65,6 @@
 		B69B9DA32A6D088800AA2DE9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B69FF6B22A74C1CD000361DE /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
-		B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextFieldView.swift; sourceTree = "<group>"; };
 		B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
 		B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationService.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 			children = (
 				B69B9DA02A6D082B00AA2DE9 /* HomeViewController.swift */,
 				B6A01AA62A6FCC2C00CBE695 /* LocationTableViewCell.swift */,
-				B6C34CE52A700B2400E20EA7 /* SearchTextFieldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 			files = (
 				B69B9D512A6D045800AA2DE9 /* AppDelegate.swift in Sources */,
 				B69B9DA42A6D088800AA2DE9 /* BaseViewController.swift in Sources */,
-				B6C34CE62A700B2400E20EA7 /* SearchTextFieldView.swift in Sources */,
 				B6A01AA72A6FCC2C00CBE695 /* LocationTableViewCell.swift in Sources */,
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
 				B6C34CEB2A7011B400E20EA7 /* LocationResponse.swift in Sources */,
