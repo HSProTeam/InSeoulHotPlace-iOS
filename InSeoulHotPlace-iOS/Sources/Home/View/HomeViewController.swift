@@ -49,16 +49,12 @@ final class HomeViewController: BaseViewController {
         viewModel.fetchLocationRequest()
         
         viewModel.loacationSubject
-            .bind(to: locationTableView.rx.items) { tv, row, item -> UITableViewCell in
-                guard let cell = tv.dequeueReusableCell(
-                    withIdentifier: "LocationTableViewCell",
-                    for: IndexPath(row: row, section: 0)
-                ) as? LocationTableViewCell
-                else { return UITableViewCell() }
-                
+            .bind(to: locationTableView.rx.items(
+                cellIdentifier: "LocationTableViewCell",
+                cellType: LocationTableViewCell.self)
+            ) { row, item, cell in
+                cell.selectionStyle = .none
                 cell.setupBindingCell(title: item.areaNm)
-                
-                return cell
             }
             .disposed(by: disposeBag)
     }
