@@ -34,7 +34,7 @@ final class HomeViewController: BaseViewController {
     
     private lazy var disposeBag = DisposeBag()
     private let viewModel = LocationViewModel()
-    private var locationData: [LocationData]?
+    private var savedLocationData: [String]?
     
     override func setupViews() {
         view.backgroundColor = .white
@@ -55,16 +55,36 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setupBinding() {
-        viewModel.fetchLocationRequest()
+        savedLocationData = LocationDataManager.fetchLocationData()
         
+        viewModel.fetchLocationRequest()
         viewModel.loacationSubject
             .bind(to: locationTableView.rx.items(
                 cellIdentifier: "LocationTableViewCell",
                 cellType: LocationTableViewCell.self)
-            ) { row, item, cell in
+            ) { [weak self] row, item, cell in
+                cell.delegate = self
                 cell.selectionStyle = .none
-                cell.setupBindingCell(title: item.areaNm)
+                
+                let locationName: String = item.areaNm
+                cell.setupBindingCell(
+                    locationName: locationName,
+                    isExis: self?.savedLocationData?.contains(locationName) ?? false
+                )
             }
             .disposed(by: disposeBag)
+    }
+}
+
+
+// MARK: - LocationTableViewCell Delegate
+extension HomeViewController: LocationTableViewCellDelegate {
+    func favoriteButtonDidTap(
+        locationName: String,
+        isSelected: Bool
+    ) {
+        var oldLocations: [String] = LocationDataManager.fetchLocationData() ?? []
+        isSelected ? oldLocations.append(locationName) : oldLocations.removeAll { $0 == locationName }
+        LocationDataManager.saveLocationData(locations: oldLocations)
     }
 }
