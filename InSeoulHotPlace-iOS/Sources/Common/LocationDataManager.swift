@@ -28,7 +28,7 @@ class LocationDataManager {
         {
             do {
                 let locations = try JSONDecoder().decode([String].self, from: jsonData)
-                print("DEBUG: LocationDataManager → fetchLocationData(데이터를 읽어오는데 성공하였습니다. \n\(locations)")
+                print("DEBUG: LocationDataManager → fetchLocationData(데이터를 읽어오는데 성공하였습니다.) \n\(locations)")
                 return locations
             }
             catch {
