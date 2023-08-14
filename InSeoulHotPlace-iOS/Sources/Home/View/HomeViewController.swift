@@ -34,7 +34,7 @@ final class HomeViewController: BaseViewController {
     
     private lazy var disposeBag = DisposeBag()
     private let viewModel = LocationViewModel()
-    private var savedLocationData: [String]?
+    private var savedFavoriteLocationData = BehaviorRelay<[String]>(value: Array.init())
     
     override func setupViews() {
         view.backgroundColor = .white
@@ -55,21 +55,22 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setupBinding() {
-        savedLocationData = LocationDataManager.fetchLocationData()
+        savedFavoriteLocationData.accept(LocationDataManager.fetchLocationData() ?? [])
         
         viewModel.fetchLocationRequest()
-        viewModel.loacationSubject
-            .bind(to: locationTableView.rx.items(
+        viewModel.sortByFavorite(locations: savedFavoriteLocationData.value)
+        viewModel.locationDriver
+            .drive(locationTableView.rx.items(
                 cellIdentifier: "LocationTableViewCell",
                 cellType: LocationTableViewCell.self)
-            ) { [weak self] row, item, cell in
+            ) { [weak self] row, items, cell in
+                let locationName: String = items.areaNm
+                
                 cell.delegate = self
                 cell.selectionStyle = .none
-                
-                let locationName: String = item.areaNm
                 cell.setupBindingCell(
                     locationName: locationName,
-                    isExis: self?.savedLocationData?.contains(locationName) ?? false
+                    isExis: self?.savedFavoriteLocationData.value.contains(locationName) ?? false
                 )
             }
             .disposed(by: disposeBag)
@@ -83,8 +84,12 @@ extension HomeViewController: LocationTableViewCellDelegate {
         locationName: String,
         isSelected: Bool
     ) {
-        var oldLocations: [String] = LocationDataManager.fetchLocationData() ?? []
-        isSelected ? oldLocations.append(locationName) : oldLocations.removeAll { $0 == locationName }
-        LocationDataManager.saveLocationData(locations: oldLocations)
+        var oldFavoritedLocations: [String] = LocationDataManager.fetchLocationData() ?? []
+        isSelected ? oldFavoritedLocations.append(locationName) : oldFavoritedLocations.removeAll { $0 == locationName }
+        savedFavoriteLocationData.accept(oldFavoritedLocations)
+        LocationDataManager.saveLocationData(locations: oldFavoritedLocations)
+        
+        viewModel.sortByName()
+        viewModel.sortByFavorite(locations: oldFavoritedLocations)
     }
 }
