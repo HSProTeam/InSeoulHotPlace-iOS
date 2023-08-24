@@ -91,5 +91,7 @@ extension HomeViewController: LocationTableViewCellDelegate {
         
         viewModel.sortByName()
         viewModel.sortByFavorite(locations: oldFavoritedLocations)
+        
+        locationTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
 }
