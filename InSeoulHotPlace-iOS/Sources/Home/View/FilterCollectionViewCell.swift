@@ -9,23 +9,18 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum FilterType {
-    case Name
-    case CongestLevel
-}
-
 protocol FilterCollectionViewDelegate: AnyObject {
     func filterDidTap(filterType: FilterType, isActive: Bool)
 }
 
 final class FilterCollectionViewCell: UICollectionViewCell {
     private let filterButton = UIButton().then {
-        $0.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         
         $0.setTitleColor(.black, for: .normal)
         $0.setTitleColor(.white, for: .selected)
         
-        $0.layer.cornerRadius = 5.0
+        $0.layer.cornerRadius = 16.0
         $0.layer.borderWidth = 1.0
         $0.layer.borderColor = UIColor.black.cgColor
     }
@@ -55,8 +50,7 @@ private extension FilterCollectionViewCell {
     
     func setupLayouts() {
         filterButton.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(2)
-            $0.leading.trailing.equalToSuperview().inset(4)
+            $0.leading.top.trailing.bottom.equalToSuperview().inset(2)
         }
     }
     
@@ -65,6 +59,7 @@ private extension FilterCollectionViewCell {
             .withUnretained(self)
             .subscribe(with: self, onNext: { owner, _ in
                 owner.filterButton.isSelected.toggle()
+                owner.filterButton.backgroundColor = owner.filterButton.isSelected ? .black : .white
                 
                 guard let type = owner.cellFilterType else { return }
                 owner.delegate?.filterDidTap(filterType: type, isActive: owner.filterButton.isSelected)

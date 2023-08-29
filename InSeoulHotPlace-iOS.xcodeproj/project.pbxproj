@@ -31,6 +31,7 @@
 		B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */; };
 		B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */; };
 		B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CF02A7013A300E20EA7 /* APIConstant.swift */; };
+		B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C45A372A972C0C00813A9A /* FilterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationService.swift; sourceTree = "<group>"; };
 		B6C34CF02A7013A300E20EA7 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		B6C45A372A972C0C00813A9A /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				B69B9DA02A6D082B00AA2DE9 /* HomeViewController.swift */,
 				B60298BA2A8A042400D99F7A /* LocationTableViewCell.swift */,
+				B6C45A372A972C0C00813A9A /* FilterCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */,
 				B60298BB2A8A042400D99F7A /* LocationTableViewCell.swift in Sources */,
 				B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */,
+				B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */,
 				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
