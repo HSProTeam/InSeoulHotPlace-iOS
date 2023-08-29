@@ -50,12 +50,12 @@ private extension LocationTableViewCell {
     
     func setupLayouts() {
         titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview()
-            $0.top.bottom.equalToSuperview().inset(16)
+            $0.top.leading.bottom.equalToSuperview().inset(16)
         }
         
         favoriteButton.snp.makeConstraints {
-            $0.trailing.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
+            $0.centerY.equalToSuperview()
         }
     }
     
@@ -80,10 +80,12 @@ private extension LocationTableViewCell {
 extension LocationTableViewCell {
     func setupBindingCell(
         locationName: String,
-        isExis: Bool
+        isExis: Bool,
+        congestColor: String
     ) {
         titleLabel.text = locationName
         favoriteButton.isSelected = isExis
         favoriteButton.tintColor = isExis ? .systemYellow : .darkGray
+        contentView.backgroundColor = UIColor(hexCode: congestColor)
     }
 }

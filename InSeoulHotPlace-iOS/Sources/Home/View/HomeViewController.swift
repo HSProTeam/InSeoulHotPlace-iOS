@@ -74,7 +74,8 @@ final class HomeViewController: BaseViewController {
         
         locationTableView.snp.makeConstraints {
             $0.top.equalTo(filterCollectionView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
     
@@ -106,7 +107,8 @@ final class HomeViewController: BaseViewController {
                 cell.selectionStyle = .none
                 cell.setupBindingCell(
                     locationName: locationName,
-                    isExis: self?.savedFavoriteLocationData.value.contains(locationName) ?? false
+                    isExis: self?.savedFavoriteLocationData.value.contains(locationName) ?? false,
+                    congestColor: items.congestionColor
                 )
             }
             .disposed(by: disposeBag)
