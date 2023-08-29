@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B60298BB2A8A042400D99F7A /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60298BA2A8A042400D99F7A /* LocationTableViewCell.swift */; };
+		B64E11B02A9DD73500D88529 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64E11AF2A9DD73500D88529 /* UIColor+Extension.swift */; };
 		B67A36F52A7561E100604437 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A36F42A7561E100604437 /* LocationDataManager.swift */; };
 		B69B9D512A6D045800AA2DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B9D502A6D045800AA2DE9 /* AppDelegate.swift */; };
 		B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B9D522A6D045800AA2DE9 /* SceneDelegate.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		B60298BA2A8A042400D99F7A /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		B64E11AF2A9DD73500D88529 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B67A36F42A7561E100604437 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		B69B9D4D2A6D045800AA2DE9 /* InSeoulHotPlace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "InSeoulHotPlace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69B9D502A6D045800AA2DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				B69FF6B22A74C1CD000361DE /* UITextField+Extension.swift */,
+				B64E11AF2A9DD73500D88529 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */,
 				B60298BB2A8A042400D99F7A /* LocationTableViewCell.swift in Sources */,
 				B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */,
+				B64E11B02A9DD73500D88529 /* UIColor+Extension.swift in Sources */,
 				B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */,
 				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
 			);
