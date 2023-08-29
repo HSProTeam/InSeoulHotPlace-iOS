@@ -23,7 +23,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private let filterLayout = UICollectionViewFlowLayout().then {
-//        $0.minimumLineSpacing = CGFloat(8)
+        $0.minimumLineSpacing = CGFloat(4)
         $0.scrollDirection = .horizontal
         $0.itemSize = CGSize(width: 76, height: 40)
     }
@@ -68,7 +68,7 @@ final class HomeViewController: BaseViewController {
         
         filterCollectionView.snp.makeConstraints {
             $0.top.equalTo(searchTextField.snp.bottom).offset(4)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.leading.trailing.equalToSuperview().inset(8)
             $0.height.equalTo(48)
         }
         
