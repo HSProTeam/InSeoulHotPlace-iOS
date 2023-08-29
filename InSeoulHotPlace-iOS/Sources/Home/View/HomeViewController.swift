@@ -22,6 +22,23 @@ final class HomeViewController: BaseViewController {
         $0.addLeftImageView(image: UIImage(systemName: "magnifyingglass")!)
     }
     
+    private let filterLayout = UICollectionViewFlowLayout().then {
+//        $0.minimumLineSpacing = CGFloat(8)
+        $0.scrollDirection = .horizontal
+        $0.itemSize = CGSize(width: 76, height: 40)
+    }
+    
+    private lazy var filterCollectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: filterLayout
+    ).then {
+        $0.backgroundColor = .white
+        $0.register(
+            FilterCollectionViewCell.self,
+            forCellWithReuseIdentifier: "FilterCollectionViewCell"
+        )
+    }
+    
     private let locationTableView = UITableView().then {
         $0.separatorStyle = .none
         $0.showsVerticalScrollIndicator = false
@@ -39,6 +56,7 @@ final class HomeViewController: BaseViewController {
     override func setupViews() {
         view.backgroundColor = .white
         view.addSubview(searchTextField)
+        view.addSubview(filterCollectionView)
         view.addSubview(locationTableView)
     }
     
@@ -48,8 +66,14 @@ final class HomeViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        locationTableView.snp.makeConstraints {
+        filterCollectionView.snp.makeConstraints {
             $0.top.equalTo(searchTextField.snp.bottom).offset(4)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(48)
+        }
+        
+        locationTableView.snp.makeConstraints {
+            $0.top.equalTo(filterCollectionView.snp.bottom)
             $0.leading.trailing.bottom.equalToSuperview().inset(16)
         }
     }
@@ -57,6 +81,18 @@ final class HomeViewController: BaseViewController {
     override func setupBinding() {
         savedFavoriteLocationData.accept(LocationDataManager.fetchLocationData() ?? [])
         
+        /// for Collection View
+        viewModel.filterDriver
+            .drive(filterCollectionView.rx.items(
+                cellIdentifier: "FilterCollectionViewCell",
+                cellType: FilterCollectionViewCell.self)
+            ) { row, items, cell in
+                cell.delegate = self
+                cell.setupCell(cellType: items == "이름순" ? .Name : .CongestLevel, cellTitle: items)
+            }
+            .disposed(by: disposeBag)
+        
+        /// for Table View
         viewModel.fetchLocationRequest()
         viewModel.sortByFavorite(locations: savedFavoriteLocationData.value)
         viewModel.locationDriver
@@ -78,8 +114,25 @@ final class HomeViewController: BaseViewController {
 }
 
 
-// MARK: - LocationTableViewCell Delegate
-extension HomeViewController: LocationTableViewCellDelegate {
+// MARK: - for Delegate
+extension HomeViewController:
+    LocationTableViewCellDelegate,
+    FilterCollectionViewDelegate
+{
+    /// FilterCollectionViewCell Delegate
+    func filterDidTap(filterType: FilterType, isActive: Bool) {
+        print("DEBUG: Cell did tap →\(filterType), \(isActive)")
+        guard isActive else { return }
+        
+        switch filterType {
+        case .Name: viewModel.sortByName()
+        case .CongestLevel: viewModel.sortByCongestLevel()
+        }
+        
+        viewModel.sortByFavorite(locations: savedFavoriteLocationData.value)
+    }
+    
+    /// LocationTableViewCell Delegate
     func favoriteButtonDidTap(
         locationName: String,
         isSelected: Bool
