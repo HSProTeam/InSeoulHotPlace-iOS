@@ -25,6 +25,9 @@
 		B69B9D9E2A6D07FF00AA2DE9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = B69B9D9D2A6D07FF00AA2DE9 /* RxMoya */; };
 		B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B9DA02A6D082B00AA2DE9 /* HomeViewController.swift */; };
 		B69B9DA42A6D088800AA2DE9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69B9DA32A6D088800AA2DE9 /* BaseViewController.swift */; };
+		B69BACDF2AA5EDD000416289 /* CategoriesPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BACDE2AA5EDD000416289 /* CategoriesPopupViewController.swift */; };
+		B69BACE32AA5F72700416289 /* CategoriesPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BACE22AA5F72700416289 /* CategoriesPopupViewModel.swift */; };
+		B69BACE52AA5F92100416289 /* CategoriesPopupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BACE42AA5F92100416289 /* CategoriesPopupTableViewCell.swift */; };
 		B69FF6B32A74C1CD000361DE /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69FF6B22A74C1CD000361DE /* UITextField+Extension.swift */; };
 		B6A01A9C2A6FC92600CBE695 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B6A01A9B2A6FC92600CBE695 /* RxCocoa */; };
 		B6A01A9E2A6FC92600CBE695 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B6A01A9D2A6FC92600CBE695 /* RxRelay */; };
@@ -73,6 +76,9 @@
 		B69B9D732A6D045900AA2DE9 /* InSeoulHotPlace_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InSeoulHotPlace_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B69B9DA02A6D082B00AA2DE9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B69B9DA32A6D088800AA2DE9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B69BACDE2AA5EDD000416289 /* CategoriesPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopupViewController.swift; sourceTree = "<group>"; };
+		B69BACE22AA5F72700416289 /* CategoriesPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopupViewModel.swift; sourceTree = "<group>"; };
+		B69BACE42AA5F92100416289 /* CategoriesPopupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPopupTableViewCell.swift; sourceTree = "<group>"; };
 		B69FF6B22A74C1CD000361DE /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResponse.swift; sourceTree = "<group>"; };
 		B6C34CEC2A7012CF00E20EA7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +209,7 @@
 				B69B9DA22A6D088000AA2DE9 /* Common */,
 				B69B9D9F2A6D081E00AA2DE9 /* Home */,
 				B66937402A9EF50F00F59C2C /* Detail */,
+				B69BACDC2AA5EDAA00416289 /* Popup */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -225,6 +232,32 @@
 				B67A36F42A7561E100604437 /* LocationDataManager.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		B69BACDC2AA5EDAA00416289 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				B69BACE02AA5F70F00416289 /* View */,
+				B69BACE12AA5F71500416289 /* ViewModel */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		B69BACE02AA5F70F00416289 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B69BACDE2AA5EDD000416289 /* CategoriesPopupViewController.swift */,
+				B69BACE42AA5F92100416289 /* CategoriesPopupTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B69BACE12AA5F71500416289 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B69BACE22AA5F72700416289 /* CategoriesPopupViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B69FF6B12A74C1B5000361DE /* Extension */ = {
@@ -410,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69BACE52AA5F92100416289 /* CategoriesPopupTableViewCell.swift in Sources */,
 				B69B9D512A6D045800AA2DE9 /* AppDelegate.swift in Sources */,
 				B69B9DA42A6D088800AA2DE9 /* BaseViewController.swift in Sources */,
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
@@ -417,6 +451,7 @@
 				B69FF6B32A74C1CD000361DE /* UITextField+Extension.swift in Sources */,
 				B67A36F52A7561E100604437 /* LocationDataManager.swift in Sources */,
 				B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */,
+				B69BACE32AA5F72700416289 /* CategoriesPopupViewModel.swift in Sources */,
 				B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */,
 				B60298BB2A8A042400D99F7A /* LocationTableViewCell.swift in Sources */,
 				B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */,
@@ -425,6 +460,7 @@
 				B66937432A9EF53700F59C2C /* DetailViewController.swift in Sources */,
 				B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */,
 				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
+				B69BACDF2AA5EDD000416289 /* CategoriesPopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

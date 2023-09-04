@@ -164,7 +164,10 @@ extension HomeViewController:
             viewModel.sortByCongestLevel()
             
         case .Categories:
-            print("DEBUG: 카테고리 팝업창이 띄어집니다.")
+            let popupViewModel = CategoriesPopupViewModel(categories: ["테스트1", "테스트2"])
+            let controller = CategoriesPopupViewController(viewModel: popupViewModel)
+            controller.modalPresentationStyle = .overFullScreen
+            self.present(controller, animated: false)
         }
         
         viewModel.sortByFavorite(locations: savedFavoriteLocationData.value)
