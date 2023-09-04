@@ -26,7 +26,7 @@ final class FilterCollectionViewCell: UICollectionViewCell {
     }
     
     private lazy var disposeBag = DisposeBag()
-    private var cellFilterType: FilterType?
+    private var filterType: FilterType?
     weak var delegate: FilterCollectionViewDelegate?
     
     override init(frame: CGRect) {
@@ -61,8 +61,11 @@ private extension FilterCollectionViewCell {
                 owner.filterButton.isSelected.toggle()
                 owner.filterButton.backgroundColor = owner.filterButton.isSelected ? .black : .white
                 
-                guard let type = owner.cellFilterType else { return }
-                owner.delegate?.filterDidTap(filterType: type, isActive: owner.filterButton.isSelected)
+                guard let type = owner.filterType else { return }
+                owner.delegate?.filterDidTap(
+                    filterType: type,
+                    isActive: owner.filterButton.isSelected
+                )
             })
             .disposed(by: disposeBag)
     }
@@ -72,10 +75,10 @@ private extension FilterCollectionViewCell {
 // MARK: - for Cell
 extension FilterCollectionViewCell {
     func setupCell(
-        cellType: FilterType,
-        cellTitle: String
+        filterType: FilterType,
+        filterName: String
     ) {
-        cellFilterType = cellType
-        filterButton.setTitle(cellTitle, for: .normal)
+        self.filterType = filterType
+        filterButton.setTitle(filterName, for: .normal)
     }
 }
