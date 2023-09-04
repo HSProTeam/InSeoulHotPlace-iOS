@@ -80,12 +80,15 @@ private extension LocationTableViewCell {
 extension LocationTableViewCell {
     func setupBindingCell(
         locationName: String,
-        isExis: Bool,
-        congestColor: String
+        isExis: Bool
+//        congestColor: String
     ) {
         titleLabel.text = locationName
         favoriteButton.isSelected = isExis
         favoriteButton.tintColor = isExis ? .systemYellow : .darkGray
-        contentView.backgroundColor = UIColor(hexCode: congestColor)
+        
+//        contentView.setGradient(color1: .white, color2: UIColor(hexCode: congestColor))
+//        contentView.bringSubviewToFront(titleLabel)
+//        contentView.bringSubviewToFront(favoriteButton)
     }
 }
