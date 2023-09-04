@@ -11,16 +11,18 @@ import RxSwift
 import RxCocoa
 
 enum FilterType {
+    case Reset
     case Name
     case CongestLevel
+    case Categories
 }
 
 final class LocationViewModel {
     private lazy var disposeBag = DisposeBag()
     private let provider = MoyaProvider<GetLocationService>()
     
-    private let filterRelay = BehaviorRelay<[String]>(value: ["이름순", "혼잡도순"])
-    private let locationRelay = BehaviorRelay<[LocationData]>(value: Array.init())
+    let filterRelay = BehaviorRelay<[String]>(value: ["초기화", "이름순", "혼잡도순", "카테고리"])
+    let locationRelay = BehaviorRelay<[LocationData]>(value: Array.init())
     private var favoriteLocations: [String] = LocationDataManager.fetchLocationData() ?? []
     
     var filterDriver: Driver<[String]> {
