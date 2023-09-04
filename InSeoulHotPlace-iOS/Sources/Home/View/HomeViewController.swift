@@ -52,8 +52,23 @@ final class HomeViewController: BaseViewController {
     private lazy var disposeBag = DisposeBag()
     private let viewModel = LocationViewModel()
     private var savedFavoriteLocationData = BehaviorRelay<[String]>(value: Array.init())
+    private let filterTypeArray: [FilterType] = [.Reset, .Name, .CongestLevel, .Categories]
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
+    }
     
     override func setupViews() {
+        navigationController?.navigationBar.isHidden = true
+        
         view.backgroundColor = .white
         view.addSubview(searchTextField)
         view.addSubview(filterCollectionView)
@@ -87,9 +102,13 @@ final class HomeViewController: BaseViewController {
             .drive(filterCollectionView.rx.items(
                 cellIdentifier: "FilterCollectionViewCell",
                 cellType: FilterCollectionViewCell.self)
-            ) { row, items, cell in
+            ) { [weak self] row, items, cell in
+                guard let self = self else { return }
                 cell.delegate = self
-                cell.setupCell(cellType: items == "이름순" ? .Name : .CongestLevel, cellTitle: items)
+                cell.setupCell(
+                    filterType: self.filterTypeArray[row],
+                    filterName: items
+                )
             }
             .disposed(by: disposeBag)
         
@@ -107,10 +126,20 @@ final class HomeViewController: BaseViewController {
                 cell.selectionStyle = .none
                 cell.setupBindingCell(
                     locationName: locationName,
-                    isExis: self?.savedFavoriteLocationData.value.contains(locationName) ?? false,
-                    congestColor: items.congestionColor
+                    isExis: self?.savedFavoriteLocationData.value.contains(locationName) ?? false
                 )
             }
+            .disposed(by: disposeBag)
+        
+        locationTableView.rx.itemSelected
+            .asDriver()
+            .drive(onNext: { [weak self] index in
+                guard let self = self else { return }
+                let data = self.viewModel.locationRelay.value[index.row]
+                
+                let controller = DetailViewController(data: data)
+                self.navigationController?.pushViewController(controller, animated: true)
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -127,8 +156,15 @@ extension HomeViewController:
         guard isActive else { return }
         
         switch filterType {
-        case .Name: viewModel.sortByName()
-        case .CongestLevel: viewModel.sortByCongestLevel()
+        case  .Reset,
+              .Name:
+            viewModel.sortByName()
+            
+        case .CongestLevel:
+            viewModel.sortByCongestLevel()
+            
+        case .Categories:
+            print("DEBUG: 카테고리 팝업창이 띄어집니다.")
         }
         
         viewModel.sortByFavorite(locations: savedFavoriteLocationData.value)
