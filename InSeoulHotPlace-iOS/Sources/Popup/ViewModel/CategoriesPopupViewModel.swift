@@ -12,7 +12,6 @@ final class CategoriesPopupViewModel {
     private lazy var diseposeBag = DisposeBag()
     private let categoriesRelay = BehaviorRelay<[String]>(value: Array.init())
     var categoriesDriver: Driver<[String]> {
-        print("DEBUG: veiwModel \(categoriesRelay.value)")
         return categoriesRelay.asDriver()
     }
     
