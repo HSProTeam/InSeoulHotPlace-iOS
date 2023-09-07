@@ -21,7 +21,7 @@ final class LocationViewModel {
     private lazy var disposeBag = DisposeBag()
     private let provider = MoyaProvider<GetLocationService>()
     
-    let filterRelay = BehaviorRelay<[String]>(value: ["초기화", "이름순", "혼잡도순", "카테고리"])
+    private let filterRelay = BehaviorRelay<[String]>(value: ["초기화", "이름순", "혼잡도순", "카테고리"])
     let locationRelay = BehaviorRelay<[LocationData]>(value: Array.init())
     private var favoriteLocations: [String] = LocationDataManager.fetchLocationData() ?? []
     
@@ -31,6 +31,7 @@ final class LocationViewModel {
     var locationDriver: Driver<[LocationData]> {
         return locationRelay.asDriver()
     }
+    var categoriesArray: [String] = Array.init()
     
     func fetchLocationRequest() {
         provider.rx.request(.getLocationService)
@@ -40,6 +41,7 @@ final class LocationViewModel {
                     print("DEBUG: fetchLocationRequest is successed")
                     guard let responseData = try? response.map(LocationResponse.self) else { return }
                     self?.updateLocation(newData: responseData.row)
+                    self?.categoriesArray = responseData.row.map { $0.category }
                     self?.sortByFavorite(locations: self?.favoriteLocations ?? [])
                     
                 case .failure(let error):

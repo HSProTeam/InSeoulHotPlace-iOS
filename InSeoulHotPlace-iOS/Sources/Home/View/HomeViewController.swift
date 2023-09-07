@@ -136,7 +136,6 @@ final class HomeViewController: BaseViewController {
             .drive(onNext: { [weak self] index in
                 guard let self = self else { return }
                 let data = self.viewModel.locationRelay.value[index.row]
-                
                 let controller = DetailViewController(data: data)
                 self.navigationController?.pushViewController(controller, animated: true)
             })
@@ -164,7 +163,7 @@ extension HomeViewController:
             viewModel.sortByCongestLevel()
             
         case .Categories:
-            let popupViewModel = CategoriesPopupViewModel(categories: ["테스트1", "테스트2"])
+            let popupViewModel = CategoriesPopupViewModel(categories: Array(Set(viewModel.categoriesArray)))
             let controller = CategoriesPopupViewController(viewModel: popupViewModel)
             controller.modalPresentationStyle = .overFullScreen
             self.present(controller, animated: false)
