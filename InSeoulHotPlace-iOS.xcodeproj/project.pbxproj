@@ -38,6 +38,9 @@
 		B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */; };
 		B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C34CF02A7013A300E20EA7 /* APIConstant.swift */; };
 		B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C45A372A972C0C00813A9A /* FilterCollectionViewCell.swift */; };
+		B6C981C72AAAD4EA00923B5E /* DetailLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C981C62AAAD4EA00923B5E /* DetailLocationResponse.swift */; };
+		B6C981CB2AAAD63400923B5E /* DetailLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C981CA2AAAD63400923B5E /* DetailLocationService.swift */; };
+		B6C981CD2AAAD6EC00923B5E /* DetailLoctaionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C981CC2AAAD6EC00923B5E /* DetailLoctaionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocationService.swift; sourceTree = "<group>"; };
 		B6C34CF02A7013A300E20EA7 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		B6C45A372A972C0C00813A9A /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		B6C981C62AAAD4EA00923B5E /* DetailLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationResponse.swift; sourceTree = "<group>"; };
+		B6C981CA2AAAD63400923B5E /* DetailLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationService.swift; sourceTree = "<group>"; };
+		B6C981CC2AAAD6EC00923B5E /* DetailLoctaionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoctaionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				B66937412A9EF52D00F59C2C /* View */,
+				B6C981C82AAAD61900923B5E /* ViewModel */,
+				B6C981C92AAAD61F00923B5E /* Network */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -291,8 +299,25 @@
 		B6C34CE92A70106500E20EA7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */,
 				B6C34CEE2A70137600E20EA7 /* GetLocationService.swift */,
+				B6C34CEA2A7011B400E20EA7 /* LocationResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B6C981C82AAAD61900923B5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6C981CC2AAAD6EC00923B5E /* DetailLoctaionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B6C981C92AAAD61F00923B5E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B6C981CA2AAAD63400923B5E /* DetailLocationService.swift */,
+				B6C981C62AAAD4EA00923B5E /* DetailLocationResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -446,17 +471,20 @@
 				B69BACE52AA5F92100416289 /* CategoriesPopupTableViewCell.swift in Sources */,
 				B69B9D512A6D045800AA2DE9 /* AppDelegate.swift in Sources */,
 				B69B9DA42A6D088800AA2DE9 /* BaseViewController.swift in Sources */,
+				B6C981CB2AAAD63400923B5E /* DetailLocationService.swift in Sources */,
 				B69B9D532A6D045800AA2DE9 /* SceneDelegate.swift in Sources */,
 				B6C34CEB2A7011B400E20EA7 /* LocationResponse.swift in Sources */,
 				B69FF6B32A74C1CD000361DE /* UITextField+Extension.swift in Sources */,
 				B67A36F52A7561E100604437 /* LocationDataManager.swift in Sources */,
 				B69B9DA12A6D082B00AA2DE9 /* HomeViewController.swift in Sources */,
 				B69BACE32AA5F72700416289 /* CategoriesPopupViewModel.swift in Sources */,
+				B6C981CD2AAAD6EC00923B5E /* DetailLoctaionViewModel.swift in Sources */,
 				B6C34CEF2A70137600E20EA7 /* GetLocationService.swift in Sources */,
 				B60298BB2A8A042400D99F7A /* LocationTableViewCell.swift in Sources */,
 				B6C34CF12A7013A300E20EA7 /* APIConstant.swift in Sources */,
 				B64E11B22A9DD9B900D88529 /* UIView.swift in Sources */,
 				B64E11B02A9DD73500D88529 /* UIColor+Extension.swift in Sources */,
+				B6C981C72AAAD4EA00923B5E /* DetailLocationResponse.swift in Sources */,
 				B66937432A9EF53700F59C2C /* DetailViewController.swift in Sources */,
 				B6C45A382A972C0C00813A9A /* FilterCollectionViewCell.swift in Sources */,
 				B6C34CED2A7012CF00E20EA7 /* LocationViewModel.swift in Sources */,
