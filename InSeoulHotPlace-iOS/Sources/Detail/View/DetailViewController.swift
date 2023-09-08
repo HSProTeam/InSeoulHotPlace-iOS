@@ -11,10 +11,16 @@ import RxCocoa
 
 class DetailViewController: BaseViewController {
     
-    init(data: LocationData) {
+    private var detailLocationData: LocationData?
+    private var viewModel: DetailLocationViewModel?
+    
+    init(
+        detailLocationData: LocationData,
+        viewModel: DetailLocationViewModel
+    ) {
         super.init()
-        
-        print("DEBUG: detail data is \(data)")
+        self.detailLocationData = detailLocationData
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -24,9 +30,8 @@ class DetailViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        title = "자세히 보기"
+        title = detailLocationData?.areaNm
         navigationController?.navigationBar.tintColor = .black
-        
     }
     
     override func setupViews() {
