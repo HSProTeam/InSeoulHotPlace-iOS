@@ -26,4 +26,21 @@ extension UILabel {
         
         self.attributedText = attributedString
     }
+    
+    func changeSomeHTMLtoString(
+        htmlText: String
+    ) {
+        if let data = htmlText.data(using: .utf8) {
+            if let attributedString = try? NSAttributedString(
+                data: data,
+                options: [
+                    .documentType: NSAttributedString.DocumentType.html,
+                    .characterEncoding: String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+            ) {
+                self.attributedText = attributedString
+            }
+        }
+    }
 }
